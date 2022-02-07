@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  postgresql:
+    image: postgres
+    container_name: edu
+    ports:
+      - '5555:5432'
+    environment:
+      - POSTGRES_HOST=localhost
+      - POSTGRES_USER=edu
+      - POSTGRES_PASSWORD=edu
+      - POSTGRES_DATABASE=edu
+    volumes:
+      - ./postgres.conf:/etc/postgresql/postgresql.conf
+    command: postgres
+    restart: always
